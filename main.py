@@ -20,7 +20,7 @@ app.include_router(pokemon.router)
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Reemplaza con tu frontend si es necesario
+    allow_origins=["https://pruebafinal-dc007cce1977.herokuapp.com/docs"],  # Cambiar "*" por el dominio de tu frontend
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

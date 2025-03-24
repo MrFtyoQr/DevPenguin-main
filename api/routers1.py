@@ -34,6 +34,10 @@ def generate_code(prompt: str, language: str = "Python", explanation: bool = Tru
     """
     try:
         code = CodeGenerationService.generate_code(prompt, language, explanation)
+        if not code:
+            raise ValueError("No se pudo generar el código.")
         return {"code": code}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail="Error interno del servidor.")
