@@ -3,7 +3,7 @@ import json  # importamos json por que sirve para trabajar con archivos json
 import random  # importamos random para generar la sopa de letras
 import os
 
-class OpenRouterDataAccess:
+class OpenRouterClient:
     API_URL = "https://openrouter.ai/api/v1/chat/completions"
     API_KEY = os.getenv("OPENROUTER_API_KEY")
     # Si la API key no está en variables de entorno, usa la hardcodeada (temporalmente)
