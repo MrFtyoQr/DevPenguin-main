@@ -8,7 +8,7 @@ class OpenRouterClient:
     API_KEY = os.getenv("OPENROUTER_API_KEY")
     # Si la API key no está en variables de entorno, usa la hardcodeada (temporalmente)
 
-    def fetch_response(self, question: str):
+    def get_response(self, question: str):
         headers = {"Authorization": f"Bearer {self.API_KEY}"}
         print("API Key en fetch_response:", self.API_KEY)  # ✅ Verificar que la API key no sea None o vacía
         response = requests.post(
