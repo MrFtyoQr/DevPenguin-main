@@ -1,6 +1,5 @@
 import requests  # importamos requests por que sirve para hacer peticiones a una url
 import json  # importamos json por que sirve para trabajar con archivos json
-import random  # importamos random para generar la sopa de letras
 import os
 
 class OpenRouterClient:
@@ -10,7 +9,6 @@ class OpenRouterClient:
 
     def get_response(self, question: str):
         headers = {"Authorization": f"Bearer {self.API_KEY}"}
-        print("API Key en fetch_response:", self.API_KEY)  # ✅ Verificar que la API key no sea None o vacía
         response = requests.post(
             url=self.API_URL,
             headers=headers,
@@ -19,5 +17,4 @@ class OpenRouterClient:
                 "messages": [{"role": "user", "content": question}]
             }
         )
-        print("Código de respuesta:", response.status_code, "Respuesta:", response.text)
         return response.json()
